@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de-CH" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio • Hobbys</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="progress" class="progress"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span><span>Mein Portfolio</span></a>
+      <nav class="nav-links" aria-label="Navigation">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="about.html">Über mich</a>
+        <a data-nav href="hobbies.html">Hobbys</a>
+        <a data-nav href="career.html">Karriere</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
+        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="card-pad">
+          <h1>Hobbys</h1>
+          <p style="font-size:1.08rem;">Hier kannst du deine Interessen schön präsentieren — inklusive kleiner Filter-Funktion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="card-pad">
+          <h2>Filter</h2>
+          <div class="filters">
+            <input class="input" id="hobbySearch" placeholder="Suche: z.B. Sport, Musik, Technik …" />
+            <select class="select" id="hobbyTag">
+              <option value="all">Alle Tags</option>
+              <option value="active">Active</option>
+              <option value="creative">Creative</option>
+              <option value="tech">Tech</option>
+              <option value="social">Social</option>
+            </select>
+          </div>
+
+          <div class="grid-3" id="hobbyGrid" style="margin-top:14px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const hobbies = [
+        { title:"Fitness / Sport", tag:"active", desc:"Ausgleich, Energie, Routine." },
+        { title:"Musik", tag:"creative", desc:"Hören, entdecken, Fokus finden." },
+        { title:"Tech & Gadgets", tag:"tech", desc:"Neue Tools testen, verstehen, optimieren." },
+        { title:"Kochen", tag:"creative", desc:"Einfach ausprobieren, besser werden." },
+        { title:"Freunde & Community", tag:"social", desc:"Zeit mit Menschen, die wichtig sind." },
+        { title:"Spaziergänge", tag:"active", desc:"Kopf frei bekommen, Ideen sortieren." }
+      ];
+
+      const grid = document.getElementById("hobbyGrid");
+      const s = document.getElementById("hobbySearch");
+      const t = document.getElementById("hobbyTag");
+
+      function render(){
+        const q = (s.value || "").toLowerCase().trim();
+        const tag = t.value;
+
+        const items = hobbies.filter(h=>{
+          const inTag = (tag === "all") ? true : h.tag === tag;
+          const inQ = q ? (h.title.toLowerCase().includes(q) || h.desc.toLowerCase().includes(q)) : true;
+          return inTag && inQ;
+        });
+
+        grid.innerHTML = items.map(h=>`
+          <div class="item">
+            <div class="meta"><span class="pill">${h.tag}</span></div>
+            <h3 style="margin-top:.55rem;">${h.title}</h3>
+            <p>${h.desc}</p>
+          </div>
+        `).join("") || `<div class="item"><h3>Keine Treffer</h3><p>Ändere Suche oder Tag.</p></div>`;
+      }
+
+      s.addEventListener("input", render);
+      t.addEventListener("input", render);
+      render();
+    </script>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="y"></span> Aschvarthan</span>
+        <span>Hobbys: filterbar & responsive</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="btn to-top" type="button">↑ Top</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
