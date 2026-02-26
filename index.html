@@ -1,10 +1,147 @@
 <!doctype html>
- 
-  <head>
-    <title>Hello World</title>
-  </head>
-  <body>
-    <h1>Hello World</h1>
-  </body>
-    <a href="https://www.example.com" id="meinKnopf">Klick mich!</a>
-      <script src="script.js"></script>
+<html lang="de-CH" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio • Start</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="progress" class="progress"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html" aria-label="Startseite">
+        <span class="dot"></span>
+        <span>Mein Portfolio</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigation">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="about.html">Über mich</a>
+        <a data-nav href="hobbies.html">Hobbys</a>
+        <a data-nav href="career.html">Karriere</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
+        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="card-pad">
+            <h1>Hi, ich bin <span style="background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent;">Aschvarthan</span>.</h1>
+            <p style="font-size:1.08rem; margin-top:.9rem;">
+              Willkommen auf meiner persönlichen Website. Hier findest du Informationen über mich,
+              meine Hobbys und meinen Werdegang.
+            </p>
+
+            <div class="badges">
+              <span class="badge">📍 Zürich</span>
+              <span class="badge">🧠 Neugierig</span>
+              <span class="badge">🛠️ Hands-on</span>
+              <span class="badge">🌱 Lernen & Wachsen</span>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;">
+              <a class="btn" href="about.html">Mehr über mich →</a>
+              <a class="btn" href="career.html">Karriere ansehen →</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <div class="card-pad">
+            <h2>Quick Facts</h2>
+            <p>Ein paar Highlights auf einen Blick.</p>
+            <div class="kpis">
+              <div class="kpi">
+                <strong>Schwerpunkte</strong>
+                <span>Security • Tech • Menschen</span>
+              </div>
+              <div class="kpi">
+                <strong>Aktuell</strong>
+                <span>Aufbau & Weiterentwicklung</span>
+              </div>
+              <div class="kpi">
+                <strong>Stil</strong>
+                <span>Strukturiert & pragmatisch</span>
+              </div>
+              <div class="kpi">
+                <strong>Kontakt</strong>
+                <span><button class="btn" style="padding:6px 10px;" onclick="copyText('aschvarthan.ponniah@securitas.ch')">E-Mail kopieren</button></span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Was du hier findest</h2>
+      <p>Kurzer Überblick über die Seiten.</p>
+
+      <div class="grid-3">
+        <div class="item">
+          <h3>Über mich</h3>
+          <p>Persönliche Story, Werte und was mich antreibt.</p>
+        </div>
+        <div class="item">
+          <h3>Hobbys</h3>
+          <p>Freizeit, Interessen und Dinge, die mich inspirieren.</p>
+        </div>
+        <div class="item">
+          <h3>Karriere</h3>
+          <p>Lebenslauf als Timeline mit Filter & Suche.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="card-pad">
+          <h2>Mini-Feature: Dein Motto</h2>
+          <p>Ein kleiner Generator, der jedes Mal einen anderen Satz zeigt.</p>
+          <button class="btn" type="button" id="mottoBtn">✨ Motto generieren</button>
+          <p id="mottoOut" style="margin-top:12px; font-weight:600; color:var(--text);"></p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const mottos = [
+        "Klarheit schlägt Komplexität.",
+        "Kleine Schritte, echte Wirkung.",
+        "Neugier ist mein Kompass.",
+        "Sicherheit beginnt mit Vertrauen.",
+        "Lernen ist ein Lifestyle."
+      ];
+      document.getElementById("mottoBtn").addEventListener("click", ()=>{
+        const pick = mottos[Math.floor(Math.random() * mottos.length)];
+        document.getElementById("mottoOut").textContent = pick;
+      });
+    </script>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="y"></span> Aschvarthan</span>
+        <span style="color:var(--muted);">Built with HTML • CSS • JS</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="btn to-top" type="button">↑ Top</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
