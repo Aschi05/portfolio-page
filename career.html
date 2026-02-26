@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="de-CH" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio • Karriere</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="progress" class="progress"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span><span>Mein Portfolio</span></a>
+      <nav class="nav-links" aria-label="Navigation">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="about.html">Über mich</a>
+        <a data-nav href="hobbies.html">Hobbys</a>
+        <a data-nav href="career.html">Karriere</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
+        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="card-pad">
+          <h1>Karriere</h1>
+          <p style="font-size:1.08rem;">
+            Timeline aus <code>assets/career.json</code> — mit Suche, Filter und Sortierung.
+          </p>
+
+          <div class="filters" id="careerRoot">
+            <input class="input" id="q" placeholder="Suche (Titel, Firma, Tags …)" />
+            <select class="select" id="type">
+              <option value="all">Alle</option>
+              <option value="job">Job</option>
+              <option value="education">Education</option>
+              <option value="project">Project</option>
+            </select>
+            <select class="select" id="sort">
+              <option value="newest">Neueste zuerst</option>
+              <option value="oldest">Älteste zuerst</option>
+            </select>
+          </div>
+
+          <div id="timeline" class="timeline"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="item">
+        <h3>Pro-Tipp</h3>
+        <p>
+          Du kannst in <code>career.json</code> beliebig viele Einträge ergänzen (Jobs, Ausbildung, Projekte).
+          Alles aktualisiert sich automatisch.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="y"></span> Aschvarthan</span>
+        <span>Timeline wird aus JSON geladen</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="btn to-top" type="button">↑ Top</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
