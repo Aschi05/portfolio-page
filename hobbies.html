@@ -34,63 +34,6 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="card">
-        <div class="card-pad">
-          <h2>Filter</h2>
-          <div class="filters">
-            <input class="input" id="hobbySearch" placeholder="Suche: z.B. Sport, Musik, Technik …" />
-            <select class="select" id="hobbyTag">
-              <option value="all">Alle Tags</option>
-              <option value="active">Active</option>
-              <option value="creative">Creative</option>
-              <option value="tech">Tech</option>
-              <option value="social">Social</option>
-            </select>
-          </div>
-
-          <div class="grid-3" id="hobbyGrid" style="margin-top:14px;"></div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      const hobbies = [
-        { title:"Fitness / Sport", tag:"active", desc:"Ausgleich, Energie, Routine." },
-        { title:"Musik", tag:"creative", desc:"Hören, entdecken, Fokus finden." },
-        { title:"Tech & Gadgets", tag:"tech", desc:"Neue Tools testen, verstehen, optimieren." },
-        { title:"Kochen", tag:"creative", desc:"Einfach ausprobieren, besser werden." },
-        { title:"Freunde & Community", tag:"social", desc:"Zeit mit Menschen, die wichtig sind." },
-        { title:"Spaziergänge", tag:"active", desc:"Kopf frei bekommen, Ideen sortieren." }
-      ];
-
-      const grid = document.getElementById("hobbyGrid");
-      const s = document.getElementById("hobbySearch");
-      const t = document.getElementById("hobbyTag");
-
-      function render(){
-        const q = (s.value || "").toLowerCase().trim();
-        const tag = t.value;
-
-        const items = hobbies.filter(h=>{
-          const inTag = (tag === "all") ? true : h.tag === tag;
-          const inQ = q ? (h.title.toLowerCase().includes(q) || h.desc.toLowerCase().includes(q)) : true;
-          return inTag && inQ;
-        });
-
-        grid.innerHTML = items.map(h=>`
-          <div class="item">
-            <div class="meta"><span class="pill">${h.tag}</span></div>
-            <h3 style="margin-top:.55rem;">${h.title}</h3>
-            <p>${h.desc}</p>
-          </div>
-        `).join("") || `<div class="item"><h3>Keine Treffer</h3><p>Ändere Suche oder Tag.</p></div>`;
-      }
-
-      s.addEventListener("input", render);
-      t.addEventListener("input", render);
-      render();
-    </script>
   </main>
 
   <footer class="footer">
