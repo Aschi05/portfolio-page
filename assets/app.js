@@ -47,16 +47,6 @@ function toggleTheme(){
   }
 })();
 
-// Copy-to-clipboard helper
-async function copyText(text){
-  try{
-    await navigator.clipboard.writeText(text);
-    toast("Kopiert ✓");
-  }catch(e){
-    toast("Konnte nicht kopieren");
-  }
-}
-
 // Toast mini UI
 let toastTimer = null;
 function toast(msg){

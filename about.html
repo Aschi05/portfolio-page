@@ -20,7 +20,6 @@
       </nav>
       <div class="nav-actions">
         <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
-        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
       </div>
     </div>
   </header>
@@ -34,11 +33,6 @@
             Hier kannst du in eigenen Worten beschreiben, wer du bist, was dir wichtig ist und wohin du möchtest.
             (Ich habe Platzhaltertexte genutzt — ersetz sie einfach.)
           </p>
-          <div class="badges">
-            <span class="badge">💬 Kommunikation</span>
-            <span class="badge">🧩 Problemlösung</span>
-            <span class="badge">🤝 Teamwork</span>
-          </div>
         </div>
       </div>
     </section>
@@ -60,34 +54,6 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="card">
-        <div class="card-pad">
-          <h2>Mini-Feature: “Über mich” als Kurzprofil</h2>
-          <p>Tippe ein paar Stichworte ein, und du bekommst eine kleine Zusammenfassung.</p>
-
-          <div class="filters">
-            <input class="input" id="keywords" placeholder="z.B. Security, Technik, Zürich, Team" />
-            <button class="btn" type="button" id="gen">🪄 Kurzprofil erstellen</button>
-          </div>
-
-          <div class="item" style="margin-top:14px;">
-            <h3>Dein Kurzprofil</h3>
-            <p id="out">—</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      document.getElementById("gen").addEventListener("click", ()=>{
-        const kw = (document.getElementById("keywords").value || "").trim();
-        const text = kw
-          ? `Ich bin eine person, die sich für ${kw} interessiert. Ich arbeite strukturiert, lerne schnell und mag klare Lösungen.`
-          : "Gib ein paar Stichworte ein, damit ich etwas daraus bauen kann.";
-        document.getElementById("out").textContent = text;
-      });
-    </script>
   </main>
 
   <footer class="footer">

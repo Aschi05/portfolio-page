@@ -25,7 +25,6 @@
 
       <div class="nav-actions">
         <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
-        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
       </div>
     </div>
   </header>
@@ -76,30 +75,7 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="card">
-        <div class="card-pad">
-          <h2>Mini-Feature: Dein Motto</h2>
-          <p>Ein kleiner Generator, der jedes Mal einen anderen Satz zeigt.</p>
-          <button class="btn" type="button" id="mottoBtn">✨ Motto generieren</button>
-          <p id="mottoOut" style="margin-top:12px; font-weight:600; color:var(--text);"></p>
-        </div>
-      </div>
-    </section>
 
-    <script>
-      const mottos = [
-        "Klarheit schlägt Komplexität.",
-        "Kleine Schritte, echte Wirkung.",
-        "Neugier ist mein Kompass.",
-        "Sicherheit beginnt mit Vertrauen.",
-        "Lernen ist ein Lifestyle."
-      ];
-      document.getElementById("mottoBtn").addEventListener("click", ()=>{
-        const pick = mottos[Math.floor(Math.random() * mottos.length)];
-        document.getElementById("mottoOut").textContent = pick;
-      });
-    </script>
 
   </main>
 
