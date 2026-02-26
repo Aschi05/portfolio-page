@@ -129,29 +129,7 @@ h3{ font-size: 1.05rem; }
 }
 .card-pad{ padding: 22px; }
 
-.badges{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; }
-.badge{
-  font-size: .9rem;
-  color: var(--muted);
-  padding: 8px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255,255,255,.04);
-}
 
-.kpis{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.kpi{
-  padding: 14px;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.04);
-}
-.kpi strong{ display:block; font-size: 1.1rem; }
-.kpi span{ color: var(--muted); font-size: .95rem; }
 
 .section{ padding: 28px 0 56px; }
 .grid-3{
