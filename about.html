@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de-CH" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio • Über mich</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="progress" class="progress"></div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><span class="dot"></span><span>Mein Portfolio</span></a>
+      <nav class="nav-links" aria-label="Navigation">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="about.html">Über mich</a>
+        <a data-nav href="hobbies.html">Hobbys</a>
+        <a data-nav href="career.html">Karriere</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn" type="button" onclick="toggleTheme()">🌗 <span>Theme</span></button>
+        <button class="btn" type="button" onclick="copyText(location.href)">🔗 <span>Link kopieren</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="card-pad">
+          <h1>Über mich</h1>
+          <p style="font-size:1.08rem;">
+            Hier kannst du in eigenen Worten beschreiben, wer du bist, was dir wichtig ist und wohin du möchtest.
+            (Ich habe Platzhaltertexte genutzt — ersetz sie einfach.)
+          </p>
+          <div class="badges">
+            <span class="badge">💬 Kommunikation</span>
+            <span class="badge">🧩 Problemlösung</span>
+            <span class="badge">🤝 Teamwork</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="item">
+          <h3>Werte</h3>
+          <p>Transparenz, Respekt, Verantwortung, kontinuierliche Verbesserung.</p>
+        </div>
+        <div class="item">
+          <h3>Stärken</h3>
+          <p>Struktur, Zuverlässigkeit, schnelles Lernen, Fokus auf Lösungen.</p>
+        </div>
+        <div class="item">
+          <h3>Ziele</h3>
+          <p>Wissen vertiefen, Impact schaffen und an spannenden Themen wachsen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="card">
+        <div class="card-pad">
+          <h2>Mini-Feature: “Über mich” als Kurzprofil</h2>
+          <p>Tippe ein paar Stichworte ein, und du bekommst eine kleine Zusammenfassung.</p>
+
+          <div class="filters">
+            <input class="input" id="keywords" placeholder="z.B. Security, Technik, Zürich, Team" />
+            <button class="btn" type="button" id="gen">🪄 Kurzprofil erstellen</button>
+          </div>
+
+          <div class="item" style="margin-top:14px;">
+            <h3>Dein Kurzprofil</h3>
+            <p id="out">—</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById("gen").addEventListener("click", ()=>{
+        const kw = (document.getElementById("keywords").value || "").trim();
+        const text = kw
+          ? `Ich bin eine person, die sich für ${kw} interessiert. Ich arbeite strukturiert, lerne schnell und mag klare Lösungen.`
+          : "Gib ein paar Stichworte ein, damit ich etwas daraus bauen kann.";
+        document.getElementById("out").textContent = text;
+      });
+    </script>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+        <span>© <span id="y"></span> Aschvarthan</span>
+        <span>Tip: Ersetze die Texte mit deinen eigenen.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="toTop" class="btn to-top" type="button">↑ Top</button>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/app.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
