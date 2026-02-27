@@ -192,6 +192,13 @@ h3{ font-size: 1.05rem; }
   background: rgba(255,255,255,.04);
   color: var(--text);
   outline: none;
+  appearance: none; /* hide default arrow */
+}
+
+/* ensure selected option text remains visible */
+.select option{
+  background: var(--card);
+  color: var(--text);
 }
 .timeline{ display:grid; gap: 12px; margin-top: 14px; }
 .timeline .entry{
