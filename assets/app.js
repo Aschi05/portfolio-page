@@ -70,8 +70,7 @@ async function loadCareer(){
 
   let data = [];
   try{
-    const res = await fetch("assets/career.json");
-    data = await res.json();
+    data = await fetchCareerData();
   }catch(e){
     out.innerHTML = `<div class="entry"><strong>Fehler</strong><p>Konnte career.json nicht laden.</p></div>`;
     return;
@@ -110,6 +109,7 @@ async function loadCareer(){
         </div>
       </div>
     `).join("") || `<div class="entry"><strong>Keine Treffer</strong><p>Versuch einen anderen Suchbegriff.</p></div>`;
+    renderChart(filtered);
   }
 
   function fmtRange(start, end){
@@ -128,3 +128,34 @@ async function loadCareer(){
   render();
 }
 document.addEventListener("DOMContentLoaded", loadCareer);
+
+// simple fetch with 1‑day cache
+async function fetchCareerData(){
+  const KEY = "careerCache";
+  const MAX_AGE = 1000*60*60*24;
+  const now = Date.now();
+  const cached = JSON.parse(localStorage.getItem(KEY) || "null");
+  if(cached && now - cached.ts < MAX_AGE){
+    return cached.data;
+  }
+  const resp = await fetch("assets/career.json");
+  const data = await resp.json();
+  localStorage.setItem(KEY, JSON.stringify({ts:now,data}));
+  return data;
+}
+
+// chart rendering
+function renderChart(items){
+  const counts = items.reduce((acc,x)=>{
+    acc[x.type] = (acc[x.type]||0)+1;
+    return acc;
+  },{});
+  const ctx = document.getElementById("careerChart");
+  if(!ctx) return;
+  if(ctx.chart) ctx.chart.destroy();
+  ctx.chart = new Chart(ctx.getContext("2d"), {
+    type:'bar',
+    data:{labels:Object.keys(counts),datasets:[{label:'Einträge nach Typ',data:Object.values(counts),backgroundColor:'rgba(124,92,255,0.6)'}]},
+    options:{responsive:true,maintainAspectRatio:false}
+  });
+}
