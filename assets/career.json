@@ -1,32 +1,63 @@
 [
   {
     "type": "job",
-    "title": "Security Specialist (Beispiel)",
-    "org": "Securitas / SD Connectivity (Beispiel)",
+    "title": "Network-Engineer (70%)",
+    "org": "Securitas AG",
     "location": "Zürich, CH",
-    "start": "2024-09-01",
+    "start": "2024-01-01",
     "end": null,
-    "details": "Kurzbeschreibung deiner Rolle: Aufgaben, Fokus, Wirkung.",
-    "tags": ["Security", "Operations", "Connectivity"]
+    "details": "Teilzeit 70% als Network-Engineer bei Securitas AG.",
+    "tags": ["Network", "70%", "Securitas"]
+  },
+
+  {
+    "type": "job",
+    "title": "ICT-Supporter",
+    "org": "Coop",
+    "location": "Zürich/Bern, CH",
+    "start": "2021-01-01",
+    "end": "2023-01-01",
+    "details": "Vollzeit (100%) ICT-Supporter bei Coop.",
+    "tags": ["ICT-Support", "Coop"]
   },
   {
     "type": "education",
-    "title": "Ausbildung / Studium (Beispiel)",
-    "org": "Schule / Uni (Beispiel)",
-    "location": "Schweiz",
-    "start": "2020-08-01",
-    "end": "2024-06-01",
-    "details": "Was du gelernt hast, Schwerpunkt, Abschluss.",
-    "tags": ["Abschluss", "Schwerpunkt"]
+    "title": "Rekrutenschule",
+    "org": "Schweizer Armee",
+    "location": "CH",
+    "start": "2020-01-01",
+    "end": "2020-12-31",
+    "details": "Militärische Grundausbildung (Rekrutenschule).",
+    "tags": ["Militär"]
   },
   {
-    "type": "project",
-    "title": "Projekt: Portfolio Website",
-    "org": "Eigenes Projekt",
-    "location": "Remote",
-    "start": "2026-02-01",
-    "end": "2026-02-10",
-    "details": "Mehrseitige Website mit Dark/Light Mode, Filter-Timeline und sauberem Design.",
-    "tags": ["HTML", "CSS", "JavaScript"]
+    "type": "job",
+    "title": "Junior ICT-Supporter",
+    "org": "BKW Energie AG",
+    "location": "Bern, CH",
+    "start": "2019-01-01",
+    "end": "2020-12-31",
+    "details": "Vollzeit (100%) als Junior ICT-Supporter bei BKW Energie AG.",
+    "tags": ["ICT-Support", "BKW"]
+  },
+  {
+    "type": "education",
+    "title": "Lehre Informatiker EFZ Systemtechnik",
+    "org": "BKW Energie AG",
+    "location": "Bern, CH",
+    "start": "2015-08-01",
+    "end": "2019-06-01",
+    "details": "Lehrabschluss als Informatiker EFZ in Systemtechnik bei BKW Energie AG.",
+    "tags": ["EFZ", "Systemtechnik", "BKW"]
+  },
+  {
+    "type": "education",
+    "title": "Spezielle Sekundarschule Oberstufe",
+    "org": "Schwarzenburg",
+    "location": "Schwarzenburg, CH",
+    "start": "2012-08-01",
+    "end": "2015-06-01",
+    "details": "Sekundarschule Oberstufe an der Schule Schwarzenburg.",
+    "tags": ["Schule", "Schwarzenburg"]
   }
 ]
