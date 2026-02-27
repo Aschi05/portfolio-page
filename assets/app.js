@@ -11,7 +11,6 @@ function toggleTheme(){
   const next = (cur === "light") ? "dark" : "light";
   document.documentElement.dataset.theme = next;
   localStorage.setItem("theme", next);
-  toast(`Theme: ${next}`);
 }
 
 // Active nav link based on current page
@@ -47,16 +46,6 @@ function toggleTheme(){
   }
 })();
 
-// Toast mini UI
-let toastTimer = null;
-function toast(msg){
-  const el = document.getElementById("toast");
-  if(!el) return;
-  el.textContent = msg;
-  el.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(()=> el.classList.remove("show"), 1800);
-}
 
 // Career page: load & filter timeline from JSON
 async function loadCareer(){

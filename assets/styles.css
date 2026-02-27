@@ -171,22 +171,6 @@ h3{ font-size: 1.05rem; }
   pointer-events:auto;
 }
 
-.toast{
-  position: fixed;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%) translateY(18px);
-  opacity:0;
-  padding: 12px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(0,0,0,.35);
-  backdrop-filter: blur(12px);
-  transition:.22s ease;
-  z-index: 70;
-}
-:root[data-theme="light"] .toast{ background: rgba(245,247,251,.78); }
-.toast.show{ opacity:1; transform: translateX(-50%) translateY(0); }
 
 .filters{
   display:flex; flex-wrap:wrap; gap: 10px;
