@@ -155,6 +155,22 @@ h3{ font-size: 1.05rem; }
   color: var(--muted);
 }
 
+/* utility classes previously inline */
+.intro-text{font-size:1.08rem; margin-top:.9rem;}
+.hero-buttons{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+.profile-img{width:100%; border-radius:8px; object-fit:cover;}
+.footer-flex{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+.muted-text{color:var(--muted);}
+.hobby-img{width:100%; border-radius:8px; margin-top:10px;}
+.hobby-desc{margin-top:10px;}
+#careerChart{width:100%; max-width:600px; height:300px; margin:0 auto;}
+
+.entry-title{margin:.55rem 0 .35rem;}
+.entry-org{color:var(--muted); font-weight:600;}
+.entry-desc{margin:.55rem 0 0;}
+.entry-badges{margin-top:12px;}
+
+
 .to-top{
   position: fixed;
   right: 18px;

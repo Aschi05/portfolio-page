@@ -90,10 +90,10 @@ async function loadCareer(){
           <span>${fmtRange(x.start, x.end)}</span>
           <span>• ${escapeHtml(x.location || "")}</span>
         </div>
-        <h3 style="margin:.55rem 0 .35rem;">${escapeHtml(x.title)}</h3>
-        <div style="color:var(--muted); font-weight:600;">${escapeHtml(x.org)}</div>
-        <p style="margin:.55rem 0 0;">${escapeHtml(x.details || "")}</p>
-        <div class="badges" style="margin-top:12px;">
+        <h3 class="entry-title">${escapeHtml(x.title)}</h3>
+        <div class="entry-org">${escapeHtml(x.org)}</div>
+        <p class="entry-desc">${escapeHtml(x.details || "")}</p>
+        <div class="entry-badges badges">
           ${(x.tags||[]).map(t=>`<span class="badge">${escapeHtml(t)}</span>`).join("")}
         </div>
       </div>
