@@ -149,3 +149,9 @@ function renderChart(items){
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
   });
 }
+
+// Set footer year automatically on all pages
+document.addEventListener("DOMContentLoaded", ()=>{
+  const yearNode = document.getElementById("y");
+  if(yearNode) yearNode.textContent = new Date().getFullYear();
+});
