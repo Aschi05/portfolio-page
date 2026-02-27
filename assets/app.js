@@ -142,9 +142,10 @@ function renderChart(items){
   const ctx = document.getElementById("careerChart");
   if(!ctx) return;
   if(ctx.chart) ctx.chart.destroy();
+  // use doughnut chart for distribution
   ctx.chart = new Chart(ctx.getContext("2d"), {
-    type:'bar',
-    data:{labels:Object.keys(counts),datasets:[{label:'Einträge nach Typ',data:Object.values(counts),backgroundColor:'rgba(124,92,255,0.6)'}]},
-    options:{responsive:true,maintainAspectRatio:false}
+    type:'doughnut',
+    data:{labels:Object.keys(counts),datasets:[{data:Object.values(counts),backgroundColor:['#7c5cff','#24d1b5','#ff6b6b','#ffcd3c']}],},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
   });
 }
