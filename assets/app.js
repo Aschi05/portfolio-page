@@ -163,19 +163,24 @@ ctx.chart = new Chart(ctx.getContext("2d"), {
   },
 
   // 🔥 HIER kommt dein Code rein
-  plugins: [{
-    id: 'centerText',
-    beforeDraw(chart) {
-      const {ctx} = chart;
-      const total = chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+plugins: [{
+  id: 'centerText',
+  beforeDraw(chart) {
+    const { ctx } = chart;
+    const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+    const styles = getComputedStyle(document.documentElement);
 
-      ctx.save();
-      ctx.font = 'bold 24px sans-serif';
-      ctx.fillStyle = '#fff';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(total, chart.width / 2, chart.height / 2);
-    }
-  }]
+    const x = chart.chartArea.left + chart.chartArea.width / 2;
+    const y = chart.chartArea.top + chart.chartArea.height / 2;
+
+    ctx.save();
+    ctx.font = 'bold 24px sans-serif';
+    ctx.fillStyle = styles.getPropertyValue('--text').trim();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(total, x, y);
+    ctx.restore();
+  }
+}]
 });
 }
