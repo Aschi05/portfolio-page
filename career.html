@@ -67,6 +67,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="assets/app.js"></script>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>const _y = document.getElementById("y"); if(_y) _y.textContent = new Date().getFullYear();</script>
 </body>
 </html>
