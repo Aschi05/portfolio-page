@@ -65,6 +65,25 @@ async function loadCareer(){
     return;
   }
 
+  // build a short, human-readable career summary from the JSON
+  function buildCareerNarrative(items){
+    const target = document.getElementById('careerSummary');
+    if(!target) return;
+    if(!Array.isArray(items) || items.length === 0){
+      target.textContent = '';
+      return;
+    }
+    const sorted = [...items].sort((a,b)=> new Date(a.start||'1970-01-01') - new Date(b.start||'1970-01-01'));
+    const parts = sorted.map(x=>{
+      const s = x.start ? new Date(x.start).toLocaleDateString('de-CH',{year:'numeric'}) : '';
+      const e = x.end ? new Date(x.end).toLocaleDateString('de-CH',{year:'numeric'}) : (x.end===null ? 'heute' : '');
+      return `${x.title} bei ${x.org} (${s}–${e})`;
+    });
+    target.textContent = 'Kurzüberblick: ' + parts.join('; ') + '.';
+  }
+
+  buildCareerNarrative(data);
+
   function render(){
     const query = (q.value || "").trim().toLowerCase();
     const t = type.value;
