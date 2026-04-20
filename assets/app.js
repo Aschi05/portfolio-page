@@ -142,9 +142,40 @@ function renderChart(items){
   if(!ctx) return;
   if(ctx.chart) ctx.chart.destroy();
   // use doughnut chart for distribution
-  ctx.chart = new Chart(ctx.getContext("2d"), {
-    type:'doughnut',
-    data:{labels:Object.keys(counts),datasets:[{data:Object.values(counts),backgroundColor:['#7c5cff','#24d1b5','#ff6b6b','#ffcd3c']}],},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}
-  });
+ctx.chart = new Chart(ctx.getContext("2d"), {
+  type: 'doughnut',
+
+  data: {
+    labels: Object.keys(counts),
+    datasets: [{
+      data: Object.values(counts),
+      backgroundColor: ['#7c5cff','#24d1b5','#ff6b6b','#ffcd3c'],
+      hoverOffset: 12
+    }]
+  },
+
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom' }
+    }
+  },
+
+  // 🔥 HIER kommt dein Code rein
+  plugins: [{
+    id: 'centerText',
+    beforeDraw(chart) {
+      const {ctx} = chart;
+      const total = chart.data.datasets[0].data.reduce((a,b)=>a+b,0);
+
+      ctx.save();
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillStyle = '#fff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(total, chart.width / 2, chart.height / 2);
+    }
+  }]
+});
 }
