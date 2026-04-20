@@ -65,24 +65,6 @@ async function loadCareer(){
     return;
   }
 
-  // build a short, human-readable career summary from the JSON
-  function buildCareerNarrative(items){
-    const target = document.getElementById('careerSummary');
-    if(!target) return;
-    if(!Array.isArray(items) || items.length === 0){
-      target.textContent = '';
-      return;
-    }
-    const sorted = [...items].sort((a,b)=> new Date(a.start||'1970-01-01') - new Date(b.start||'1970-01-01'));
-    const parts = sorted.map(x=>{
-      const s = x.start ? new Date(x.start).toLocaleDateString('de-CH',{year:'numeric'}) : '';
-      const e = x.end ? new Date(x.end).toLocaleDateString('de-CH',{year:'numeric'}) : (x.end===null ? 'heute' : '');
-      return `${x.title} bei ${x.org} (${s}–${e})`;
-    });
-    target.textContent = 'Kurzüberblick: ' + parts.join('; ') + '.';
-  }
-
-  buildCareerNarrative(data);
 
   function render(){
     const query = (q.value || "").trim().toLowerCase();
@@ -91,7 +73,7 @@ async function loadCareer(){
 
     let filtered = data.filter(x=>{
       const inType = (t === "all") ? true : x.type === t;
-      const hay = `${x.title} ${x.org} ${x.location} ${(x.tags||[]).join(" ")} ${(x.details||"")}`.toLowerCase();
+      const hay = `${x.title} ${x.org} ${x.location} ${(x.details||"")}`.toLowerCase();
       const inQuery = query ? hay.includes(query) : true;
       return inType && inQuery;
     });
@@ -112,9 +94,7 @@ async function loadCareer(){
         <h3 class="entry-title">${escapeHtml(x.title)}</h3>
         <div class="entry-org">${escapeHtml(x.org)}</div>
         <p class="entry-desc">${escapeHtml(x.details || "")}</p>
-        <div class="entry-badges badges">
-          ${(x.tags||[]).map(t=>`<span class="badge">${escapeHtml(t)}</span>`).join("")}
-        </div>
+        
       </div>
     `).join("") || `<div class="entry"><strong>Keine Treffer</strong><p>Versuch einen anderen Suchbegriff.</p></div>`;
     renderChart(filtered);

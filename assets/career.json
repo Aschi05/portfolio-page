@@ -6,8 +6,7 @@
     "location": "Zürich, CH",
     "start": "2024-01-01",
     "end": null,
-    "details": "Teilzeit 70% als Network-Engineer bei Securitas AG.",
-    "tags": ["Network", "70%", "Securitas"]
+    "details": "Teilzeit 70% als Network-Engineer bei Securitas AG."
   },
 
   {
@@ -17,8 +16,7 @@
     "location": "Zürich/Bern, CH",
     "start": "2021-01-01",
     "end": "2023-01-01",
-    "details": "Vollzeit (100%) ICT-Supporter bei Coop.",
-    "tags": ["ICT-Support", "Coop"]
+    "details": "Vollzeit (100%) ICT-Supporter bei Coop."
   },
   {
     "type": "education",
@@ -27,8 +25,7 @@
     "location": "CH",
     "start": "2020-01-01",
     "end": "2020-12-31",
-    "details": "Militärische Grundausbildung (Rekrutenschule).",
-    "tags": ["Militär"]
+    "details": "Militärische Grundausbildung (Rekrutenschule)."
   },
   {
     "type": "job",
@@ -37,8 +34,7 @@
     "location": "Bern, CH",
     "start": "2019-01-01",
     "end": "2020-12-31",
-    "details": "Vollzeit (100%) als Junior ICT-Supporter bei BKW Energie AG.",
-    "tags": ["ICT-Support", "BKW"]
+    "details": "Vollzeit (100%) als Junior ICT-Supporter bei BKW Energie AG."
   },
   {
     "type": "education",
@@ -47,8 +43,7 @@
     "location": "Bern, CH",
     "start": "2015-08-01",
     "end": "2019-06-01",
-    "details": "Lehrabschluss als Informatiker EFZ in Systemtechnik bei BKW Energie AG.",
-    "tags": ["EFZ", "Systemtechnik", "BKW"]
+    "details": "Lehrabschluss als Informatiker EFZ in Systemtechnik bei BKW Energie AG."
   },
   {
     "type": "education",
@@ -57,7 +52,6 @@
     "location": "Schwarzenburg, CH",
     "start": "2012-08-01",
     "end": "2015-06-01",
-    "details": "Sekundarschule Oberstufe an der Schule Schwarzenburg.",
-    "tags": ["Schule", "Schwarzenburg"]
+    "details": "Sekundarschule Oberstufe an der Schule Schwarzenburg."
   }
 ]
