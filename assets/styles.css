@@ -216,6 +216,16 @@ h3{ font-size: 1.05rem; }
   background: var(--card);
   color: var(--text);
 }
+/* Ensure dropdown menus show readable text in dark mode across browsers */
+.select, select{
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+.select option, select option{
+  background-color: var(--card) !important;
+  color: var(--text) !important;
+}
+select::-ms-expand{ display: none; }
 .timeline{ display:grid; gap: 12px; margin-top: 14px; }
 .timeline .entry{
   padding: 16px;
